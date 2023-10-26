@@ -33,7 +33,8 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
       - name: Set Maven Options  # Add this step
-        run: export MAVEN_OPTS="$MAVEN_OPTS --add-opens java.base/java.util=ALL-UNNAMED"      - name: Build and analyze
+        run: export MAVEN_OPTS="$MAVEN_OPTS --add-opens java.base/java.util=ALL-UNNAMED"      
+      - name: Build and analyze
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
